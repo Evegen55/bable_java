@@ -38,4 +38,4 @@ How to compile:
 >javac NBable.java
 
 How to run:
->java NBable < inputfile
+>java NBable <full path to input file>

@@ -1,3 +1,5 @@
+package org.nbabel;
+
 /*Star class contains information about star (mass,position and velocity) and
 150 methods to update position, velocity and acceleration */
 public class Star {
