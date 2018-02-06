@@ -45,10 +45,17 @@ Total time (tEnd): 1.0
 
 This code is submitted free of license
 
-## How to compile:
+### How to compile:
 
-     javac NBable.java
+    tools:
 
-How to run:
+    apache maven 3
 
-     java NBable <full path to input file>
+    jdk 1.8 (minimum)
+
+     `mvn clean install -Dmaven.test.skip=true`
+
+### How to run:
+
+     cd target
+     java bable_java-1.0.jar <full path to input file>
