@@ -15,10 +15,22 @@ Total time (tEnd): 1.0
 
 Performance:
 
-N	CPU time	dE/E
-32	2.778		7.34E-7
-64	9.882		3.60E-6
-128	38.906		1.72E-6
+old processor:
+
+    N	CPU time    	dE/E
+    32	2.778 s 		7.34E-7
+    64	9.882 s 		3.60E-6
+    128	38.906 s		1.72E-6
+
+[CPU Intel® Core™ i5-6300U](https://ark.intel.com/ru/products/88190/Intel-Core-i5-6300U-Processor-3M-Cache-up-to-3_00-GHz):
+
+    N       CPU time        dE/E
+    32	    0.069 s		    doityourself
+    64	    0.259 s		    doityourself
+    128	    1.586 s		    doityourself
+    256     4.153 s         doityourself
+    512     14.589          doityourself
+    1K      1 m 4.887 s     doityourself
 
 **This code is submitted free of license
 

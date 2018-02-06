@@ -1,22 +1,17 @@
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * cluster contains set of stars and methods to calculate acceleration, update
  * acceleration,calculate energy
  */
 public class Cluster {
-    public Vector<Star> N = new Vector<Star>();
 
-    public Cluster() {
-    }
-
-    public void addstar(double mass, double[] pos, double[] vel) {
-        N.add(new Star(mass, pos, vel));
-    }
+    public final List<Star> N = new ArrayList<>();
 
     public void acc() {
-        for (int kk = 0; kk < N.size(); kk++) {
-            N.get(kk).reset_a(); //reset star acceleration (a) to zero
+        for (Star aN : N) {
+            aN.reset_a(); //reset star acceleration (a) to zero
         }
 
         double rd;        //rd used to store distance
@@ -37,20 +32,20 @@ public class Cluster {
     }
 
     public void update_positions(double dt) {  //updates the position of each star
-        for (int kk = 0; kk < N.size(); kk++) {
-            N.get(kk).update_position(dt);
+        for (Star aN : N) {
+            aN.update_position(dt);
         }
     }
 
     public void update_velocities(double dt) {       // Updates the velocity of  each star and
-        for (int kk = 0; kk < N.size(); kk++) {  // then updata aold (Sets aold equal to a)
-            N.get(kk).update_velocity(dt);
+        for (Star aN : N) {  // then updata aold (Sets aold equal to a)
+            aN.update_velocity(dt);
         }
     }
 
     public void update_acc() {   // Updates aold (Sets aold equal to a)
-        for (int kk = 0; kk < N.size(); kk++) {
-            N.get(kk).aold_equal_a();//aold[0]=N.get(kk).a[0];
+        for (Star aN : N) {
+            aN.aold_equal_a();//aold[0]=N.get(kk).a[0];
         }
     }
 
