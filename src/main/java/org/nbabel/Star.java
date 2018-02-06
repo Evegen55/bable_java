@@ -1,7 +1,8 @@
 package org.nbabel;
-
-/*Star class contains information about star (mass,position and velocity) and
-150 methods to update position, velocity and acceleration */
+/**
+ * Star class contains information about star (mass,position and velocity) and
+ * methods to update position, velocity and acceleration
+ */
 public class Star {
     public double m;
     public double[] r = new double[3];
