@@ -1,11 +1,13 @@
-http://www.nbabel.org
-NBabel.java
-Date: April 2010
+[NBabel](http://www.nbabel.org)
+
+Date (first version): April 2010
+
 Author:  Philip Breen (University of Edinburgh)
 
 Initial conditions: 32,64 and 128 particles Plummer distribution of equal mass
 
 Time step (dt): constant and shared 0.001 N-body unit
+
 Total time (tEnd): 1.0
 
 Performance:
