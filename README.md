@@ -3,11 +3,6 @@ NBabel.java
 Date: April 2010
 Author:  Philip Breen (University of Edinburgh)
 
-Integration scheme: Predictor-corrector leapfrog
-Compiler: javac
-Operating system:  Scientific Linux
-Hardware: Intel(R) Pentium(R) 4 CPU 3.20GHz
-
 Initial conditions: 32,64 and 128 particles Plummer distribution of equal mass
 
 Time step (dt): constant and shared 0.001 N-body unit
@@ -15,7 +10,14 @@ Total time (tEnd): 1.0
 
 Performance:
 
-old processor:
+[Intel(R) Pentium(R) 4 CPU 3.20GHz](https://ark.intel.com/ru/products/27500/Intel-Pentium-4-Processor-supporting-HT-Technology-3_20-GHz-1M-Cache-800-MHz-FSB)
+
+Integration scheme: Predictor-corrector leapfrog
+
+Compiler: javac
+
+Operating system:  Scientific Linux
+
 
     N	CPU time    	dE/E
     32	2.778 s 		7.34E-7
