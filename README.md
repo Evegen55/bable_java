@@ -48,13 +48,16 @@ Total time (tEnd): 1.0
     Operating system:  Linux Ubuntu 16.04
 
     N       CPU time        dE/E
-    32      0.135 s         doityourself
+    32      0.028 s         doityourself
     64       s              doityourself
     128      s              doityourself
     256      s              doityourself
     512     6.294 s         -5.005905457563923E-4
-    1K      26.541 s        0.0011828322950373496
-    2K      1 m 27.723 s    -3.2808998334836616E-4 //87.527s //87.75s
+    1K      25.004 s        0.001892304179986966
+    2K      1 m 27.723 s    -3.2808998334836616E-4
+    4K
+    8K
+    16K     8059.047s      -2.3991065527427605E-5
 
 ## License
 

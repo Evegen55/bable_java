@@ -3,6 +3,7 @@ package org.nbabel;
 import org.junit.Ignore;
 import org.junit.Test;
 
+//-XX:+UnlockDiagnosticVMOptions -XX:+PrintIntrinsics
 public class NBableTest {
 
     @Test
@@ -13,7 +14,7 @@ public class NBableTest {
     }
 
     @Test
-    public void mainWithNoneEmptyArgs() {
+    public void main16() {
         String filename = "src/test/resources/inputFilesSmall/input16";
         String[] args = {filename};
         NBable.main(args);
@@ -64,6 +65,27 @@ public class NBableTest {
     @Test
     public void main2K() {
         String filename = "src/test/resources/input2k";
+        String[] args = {filename};
+        NBable.main(args);
+    }
+
+    @Test
+    public void main4K() {
+        String filename = "src/test/resources/input4k";
+        String[] args = {filename};
+        NBable.main(args);
+    }
+
+    @Test
+    public void main8K() {
+        String filename = "src/test/resources/input8k";
+        String[] args = {filename};
+        NBable.main(args);
+    }
+
+    @Test
+    public void main16K() {
+        String filename = "src/test/resources/input16k";
         String[] args = {filename};
         NBable.main(args);
     }
