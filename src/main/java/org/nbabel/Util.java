@@ -18,7 +18,7 @@ public class Util {
         return cluster;
     }
 
-    public static void createStarAndAddToCluster(final Cluster cluster, final String line) {
+    private static void createStarAndAddToCluster(final Cluster cluster, final String line) {
         final StringTokenizer numbers = new StringTokenizer(line);
 
         while (numbers.hasMoreTokens()) {

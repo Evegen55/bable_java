@@ -13,7 +13,22 @@ public class NBable {
 
         final Cluster cluster = getClusterFromFile(args[0]);
 
+        System.out.println("There are " + cluster.stars.size() + " stars");
+
         long startTime = System.nanoTime(); //START
+
+        doJob(cluster);
+
+        long endTime = System.nanoTime();   //FINISH
+
+        double estTime = ((endTime - startTime) / (Math.pow(10, 9)));
+
+        double finalValue = Math.round(estTime * 1000.0) / 1000.0;
+
+        System.err.print("time for work: " + finalValue + "s\t");
+    }
+
+    private static void doJob(final Cluster cluster) {
 
         double t = 0.0;
         double dt = 0.001;
@@ -48,14 +63,6 @@ public class NBable {
 
 //            System.out.println((0.25 + E[0]) / 0.25);
         }
-
-        long endTime = System.nanoTime();   //FINISH
-
-        double estTime = ((endTime - startTime) / (Math.pow(10, 9)));
-
-        double finalValue = Math.round(estTime * 1000.0) / 1000.0;
-
-        System.err.print("time for work: " + finalValue + "s\t");
     }
 
 }

@@ -55,9 +55,15 @@ public class NBableTest {
     }
 
     @Test
-    @Ignore
     public void main1K() {
-        String filename = "src/test/resources/inputFilesSmall/input1K";
+        String filename = "src/test/resources/inputFilesSmall/input1k";
+        String[] args = {filename};
+        NBable.main(args);
+    }
+
+    @Test
+    public void main2K() {
+        String filename = "src/test/resources/input2k";
         String[] args = {filename};
         NBable.main(args);
     }

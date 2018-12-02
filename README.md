@@ -2,7 +2,7 @@
 
 Date (first version): April 2010
 
-Date (refactored): February 2018
+Date (refactored): December 2018
 
 Author:  Philip Breen (University of Edinburgh)
 
@@ -41,6 +41,21 @@ Total time (tEnd): 1.0
     512     14.589          doityourself
     1K      1 m 4.887 s     doityourself
 
+### [CPU Intel® Core™ i5-7300HQ](https://ark.intel.com/ru/products/97456/Intel-Core-i5-7300HQ-Processor-6M-Cache-up-to-3-50-GHz-):
+
+    Compiler: javac
+
+    Operating system:  Linux Ubuntu 16.04
+
+    N       CPU time        dE/E
+    32      0.135 s         doityourself
+    64       s              doityourself
+    128      s              doityourself
+    256      s              doityourself
+    512     6.294 s         -5.005905457563923E-4
+    1K      26.541 s        0.0011828322950373496
+    2K      1 m 27.723 s    -3.2808998334836616E-4
+
 ## License
 
 This code is submitted free of license
@@ -51,7 +66,7 @@ This code is submitted free of license
 
     apache maven 3
 
-    jdk 1.8 (minimum)
+    jdk 1.10 (minimum)
 
      `mvn clean install -Dmaven.test.skip=true`
 
