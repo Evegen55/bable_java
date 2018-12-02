@@ -1,50 +1,47 @@
 package org.nbabel;
+
+import java.util.Arrays;
+
 /**
- * Star class contains information about star (mass,position and velocity) and
- * methods to update position, velocity and acceleration
+ * Star class contains information about star (mass,position and velocity) and methods to update position, velocity and
+ * acceleration
  */
 public class Star {
-    public double m;
-    public double[] r = new double[3];
-    public double[] v = new double[3];
-    public double[] a = new double[3];
-    public double[] aold = new double[3];
 
-    public Star() {
-        m = 0;
-        double[] ze = {0, 0, 0};
-        r = ze;
-        v = ze;
+    private static int NUM_DIMENSIONS = 3;
+
+    final double mass;
+
+    double[] position = new double[NUM_DIMENSIONS];
+    double[] velocity = new double[NUM_DIMENSIONS];
+    double[] acceleration_1 = new double[NUM_DIMENSIONS];
+    double[] acceleration_0 = new double[NUM_DIMENSIONS];
+
+    public Star(final double mass) {
+        this.mass = mass;
     }
 
-    public Star(double mass, double[] pos, double[] vel) {
-        m = mass;
-        r = pos;
-        v = vel;
+
+    public void resetAcceleration() {
+        Arrays.fill(acceleration_1, 0);
     }
 
-    public void reset_a() {
-        for (int i = 0; i != 3; i++) {
-            a[i] = 0.0;
+    public void copyAccelerationFromNewToOld() {
+        for (int i = 0; i != NUM_DIMENSIONS; i++) {
+            acceleration_0[i] = acceleration_1[i];
         }
     }
 
-    public void aold_equal_a() {
-        for (int i = 0; i != 3; i++) {
-            aold[i] = a[i];
-        }
-    }
-
-    public void update_position(double dt) {
-        for (int i = 0; i != 3; i++) {
+    public void updatePosition(double dt) {
+        for (int i = 0; i != NUM_DIMENSIONS; i++) {
             double dt2 = dt * dt;
-            r[i] += v[i] * dt + 0.5 * a[i] * dt2;
+            position[i] += velocity[i] * dt + 0.5 * acceleration_1[i] * dt2;
         }
     }
 
-    public void update_velocity(double dt) {
+    public void updateVelocity(double dt) {
         for (int i = 0; i != 3; i++) {
-            v[i] += 0.5 * dt * (a[i] + aold[i]);
+            velocity[i] += 0.5 * dt * (acceleration_1[i] + acceleration_0[i]);
         }
     }
 }
