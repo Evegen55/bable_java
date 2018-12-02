@@ -34,12 +34,12 @@ Total time (tEnd): 1.0
 ### [CPU Intel® Core™ i5-6300U](https://ark.intel.com/ru/products/88190/Intel-Core-i5-6300U-Processor-3M-Cache-up-to-3_00-GHz):
 
     N       CPU time        dE/E
-    32      0.069 s         doityourself
-    64      0.259 s         doityourself
-    128     1.586 s         doityourself
-    256     4.153 s         doityourself
-    512     14.589          doityourself
-    1K      1 m 4.887 s     doityourself
+    32      0.069 s
+    64      0.259 s
+    128     1.586 s
+    256     4.153 s
+    512     14.589
+    1K      1 m 4.887 s
 
 ### [CPU Intel® Core™ i5-7300HQ](https://ark.intel.com/ru/products/97456/Intel-Core-i5-7300HQ-Processor-6M-Cache-up-to-3-50-GHz-):
 
@@ -48,10 +48,10 @@ Total time (tEnd): 1.0
     Operating system:  Linux Ubuntu 16.04
 
     N       CPU time        dE/E
-    32      0.028 s         doityourself
-    64       s              doityourself
-    128      s              doityourself
-    256      s              doityourself
+    32      0.028 s         -0.0018031413064693988
+    64      0.378 s         0.002169133697202455
+    128     0.744 s         0.002973526562299809
+    256     1.941 s         1.6055225004813644E-4
     512     6.294 s         -5.005905457563923E-4
     1K      25.004 s        0.001892304179986966
     2K      1 m 27.723 s    -3.2808998334836616E-4
