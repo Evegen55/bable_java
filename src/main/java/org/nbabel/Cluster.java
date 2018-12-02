@@ -11,22 +11,31 @@ public class Cluster {
     public final List<Star> stars = new ArrayList<>();
 
     public void acc() {
-        //reset star acceleration (a) to zero
-        stars.forEach(Star::resetAcceleration);
 
         double rd;        //rd used to store distance
 
         for (int ii = 0; ii != stars.size(); ii++) {
             for (int j = ii + 1; j != stars.size(); j++) {
+
                 rd = 0;
                 for (int i = 0; i != 3; i++) {
                     rd += (stars.get(ii).position[i] - stars.get(j).position[i]) * (stars.get(ii).position[i] - stars.get(j).position[i]);
+//                    rd = Math.fma((stars.get(ii).position[i] - stars.get(j).position[i]),
+//                                  (stars.get(ii).position[i] - stars.get(j).position[i]),
+//                                  rd);
                 }
-                double coff = Math.pow(Math.sqrt(rd), 3);
 
+                double coff = Math.pow(Math.sqrt(rd), 3);
                 for (int i = 0; i != 3; i++) {
                     stars.get(ii).acceleration_1[i] += (stars.get(j).mass / coff) * (stars.get(j).position[i] - stars.get(ii).position[i]);
+//                    stars.get(ii).acceleration_1[i] = Math.fma((stars.get(j).mass / coff),
+//                                                               (stars.get(j).position[i] - stars.get(ii).position[i]),
+//                                                               stars.get(ii).acceleration_1[i]);
+
                     stars.get(j).acceleration_1[i] += (stars.get(ii).mass / coff) * (stars.get(ii).position[i] - stars.get(j).position[i]);
+//                    stars.get(j).acceleration_1[i] = Math.fma((stars.get(ii).mass / coff),
+//                                                              (stars.get(ii).position[i] - stars.get(j).position[i]),
+//                                                              stars.get(j).acceleration_1[i]);
                 }
             }
         }
@@ -36,6 +45,7 @@ public class Cluster {
     public void updatePositionsForAll(final double dt) {
         stars.forEach(star -> star.updatePosition(dt));
     }
+
     // Updates aold (Sets aold equal to a)
     public void updateAccelerationsForAll() {
         //aold[0]=stars.get(kk).a[0];
@@ -43,16 +53,18 @@ public class Cluster {
     }
 
     /**
-     * updates the position of each star
-     * Updates aold (Sets aold equal to a)
+     * updates the position of each star Updates aold (Sets aold equal to a) Resets star acceleration (a) to zero
+     *
      * @param dt
      * @param dt
      */
     public void updatePositionsAndAccelerationsForAll(final double dt) {
-        stars.forEach(star -> {
-            star.updatePosition(dt);
-            star.copyAccelerationFromNewToOld();
-        });
+        stars.parallelStream()
+                .forEach(star -> {
+                    star.updatePosition(dt);
+                    star.copyAccelerationFromNewToOld();
+                    star.resetAcceleration();
+                });
     }
 
     // Updates the velocity of  each star and
@@ -85,7 +97,7 @@ public class Cluster {
 
             E[1] = 0.5 * E[1];
             E[0] = E[1] + E[2];
-            return E;
+            return E;  // TODO: 02.12.18 WTF??
         }
         return null;
     }

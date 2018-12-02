@@ -39,12 +39,13 @@ public class NBable {
 
         System.out.println("Initial Energy of system  = " + E[0] + "\t Kinetic energy = " + E[1] + "\t Potential energy = " + E[2]);
 
+        cluster.stars.forEach(Star::resetAcceleration);
         cluster.acc();
 
         int count = 0;
         while (t < tend) {
 
-            cluster.updatePositionsAndAccelerationsForAll(dt);
+            cluster.updatePositionsAndAccelerationsForAll(dt); //it also resets acceleration for all
             cluster.acc();
             cluster.updateVelocitiesForAll(dt);
 
