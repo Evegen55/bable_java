@@ -87,6 +87,7 @@ public class Cluster {
                 E[1] = Math.fma(star.mass, Math.pow(star.velocity[j], 2), E[1]);
             }
         });
+        E[1] = 0.5 * E[1];
 
         //Potential energy
         for (int ii = 0; ii != stars.size() - 1; ii++) {
@@ -101,7 +102,7 @@ public class Cluster {
                 E[2] -= (stars.get(ii).mass * stars.get(j).mass) / Math.sqrt(rd);
             }
         }
-        E[1] = 0.5 * E[1];  //Why?
+
         E[0] = E[1] + E[2];
         return E;
     }
