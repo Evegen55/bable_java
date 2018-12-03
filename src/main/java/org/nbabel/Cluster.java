@@ -100,11 +100,9 @@ public class Cluster {
                 }
                 E[2] -= (stars.get(ii).mass * stars.get(j).mass) / Math.sqrt(rd);
             }
-
-            E[1] = 0.5 * E[1];
-            E[0] = E[1] + E[2];
-            return E;  // TODO: 02.12.18 WTF??
         }
-        return null;
+        E[1] = 0.5 * E[1];  //Why?
+        E[0] = E[1] + E[2];
+        return E;
     }
 }
